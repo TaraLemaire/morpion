@@ -67,22 +67,70 @@ class Main {
   }
 
   public static boolean victoire(int[][] grille, int numJoueur) {
+    // 3 symboles identiques sur une des lignes
     for (int ligne = 0 ; ligne < grille.length ; ligne++) {
       if (vainqueur(grille[ligne][0], grille[ligne][1], grille[ligne][2], numJoueur)) {
         return true;
       }
     }
+    // 3 symboles identiques sur une des 3 colonnes
     for (int colonne = 0 ; colonne < grille.length ; colonne++) {
       if (vainqueur(grille[0][colonne], grille[1][colonne], grille[2][colonne], numJoueur)) {
         return true;
       }
     }
+    // victoire sur une des diagonales
     if (vainqueur(grille[0][0], grille[1][1], grille[2][2], numJoueur) || vainqueur(grille[2][0], grille[1][1], grille[0][2], numJoueur)) {
       return true;
     }
     return false;
   }
-  
+
+  /**
+   * Fonction score qui détermine le score entre 2 noeuds
+   * @param grilleActuelle état actuelle de la grille
+   * @param joueurActuel joueur actuel
+   * @param joueurPrecedent joueur précedent
+   * @return score du coup : -1 / 0 / +1 si le coup mène à une défaite, un match nul ou une victoire
+   * Si dans chaque ligne ou chaque colonne ou chaque diagonale il y a plus de symboles du joueurActuel que du joueurPrecedent alors score = 1
+   * Si il y a plus de symbole du joueurPrecedent que du joueurActuel alors score = -1
+   * Sinon égalité alors score = 0
+   */
+  public static int score(int[][] grilleActuelle, int joueurActuel, int joueurPrecedent){
+    int score = 0;
+    int cptJ1, cptJ2;
+    // Parcourir chaque ligne et comparer le nombre de symboles des joueurs
+    for (int ligne = 0 ; ligne < grilleActuelle.length ; ligne++) {
+
+      // Parcourir chaque ligne et comparer le nombre de symboles des joueurs
+      for (int colonne = 0 ; colonne < grilleActuelle[ligne].length ; colonne++) {
+      }
+      // Parcourir les diagonales et comparer les symboles des joueurs
+    }
+    return 0;
+  }
+
+
+  /**
+   * Fonction arbre qui détermine le meilleur coup en fonction de la grille actuelle
+   * @param grilleActuelle état de la grille actuelle
+   * @param numJoueur joueur en cours
+   * @return la meilleure solution possible en fonction de l'état de la grille et du joueur actuel
+   */
+  public static int[][] arbre(int[][] grilleActuelle, int numJoueur){
+    int[][] grilleSuivante = creerGrille(3, 3);
+    return grilleSuivante;
+  }
+
+  // Version morpion Humain VS IA
+  public static void humain_contre_ia() {
+    int[][] grille = creerGrille(3, 3);
+    int joueurActuel = 1;
+    boolean jouer = true;
+    while (jouer) {
+    }
+  }
+
   public static void morpion() {
     int[][] grille = creerGrille(3, 3);
     int joueurActuel = 1;
